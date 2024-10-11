@@ -1,0 +1,67 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+// WiFi settings
+#define WIFI_SSID "mlsaff"
+#define WIFI_PASSWORD "meljay04"
+
+// Pin definitions
+#define LOADCELL_DOUT_PIN D6
+#define LOADCELL_SCK_PIN D7
+#define RAIN_SENSOR_PIN A0
+#define WAKEUP_PIN D0
+#define ACTIVE_BUZZER D8
+
+// Serial communication
+#define ARDUINO_RX D3
+#define ARDUINO_TX D4
+
+// Server settings
+#define SERVER_HOST "mlsaff.com"
+#define SERVER_PORT 443
+
+// API endpoints
+#define API_COMMAND_DATA "/api/command-data"
+#define API_CMD "/api/cmd"
+#define API_ACTIVE_FED "/api/activeFed"
+#define API_AM_FED "/api/AmFed"
+#define API_PM_FED "/api/PmFed"
+#define API_UPDATE_WEIGHT "/api/upWeight"
+#define API_SENSOR_READING "/api/sensor"
+#define API_LOGS "/api/logs"
+
+// Timing constants
+#define MAIN_LOOP_DELAY 2000  // 2 seconds
+#define RAIN_DURATION_THRESHOLD 600000  // 10 minutes in milliseconds
+
+// Weight thresholds
+#define MIN_WEIGHT_THRESHOLD 100
+#define MAX_WEIGHT_THRESHOLD 1000
+
+// Include the root CA certificate
+const char* ROOT_CA = R"EOF(
+-----BEGIN CERTIFICATE-----
+MIIDoTCCA0igAwIBAgIRAO6Z9P1P3584De+0GaKWIIYwCgYIKoZIzj0EAwIwOzEL
+MAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEMMAoG
+A1UEAxMDV0UxMB4XDTI0MDkxODEwMDAzM1oXDTI0MTIxNzEwMDAzMlowFTETMBEG
+A1UEAxMKbWxzYWZmLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABLDPiVtX
+miRTng8Cbxad7xIliNcgSMHCX71hpwXXrKE2uiLMmTCVE3MKMv/OusB/6ogIejFq
+RfpPGmc6MHnCB1+jggJRMIICTTAOBgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAwwCgYI
+KwYBBQUHAwEwDAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQUSl1kxnbOegcFEpWm+c3c
+33dccygwHwYDVR0jBBgwFoAUkHeSNWfE/6jMqeZ72YB5e8yT+TgwXgYIKwYBBQUH
+AQEEUjBQMCcGCCsGAQUFBzABhhtodHRwOi8vby5wa2kuZ29vZy9zL3dlMS83cGsw
+JQYIKwYBBQUHMAKGGWh0dHA6Ly9pLnBraS5nb29nL3dlMS5jcnQwIwYDVR0RBBww
+GoIKbWxzYWZmLmNvbYIMKi5tbHNhZmYuY29tMBMGA1UdIAQMMAowCAYGZ4EMAQIB
+MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jLnBraS5nb29nL3dlMS9yZ2Vva1JB
+X24tZy5jcmwwggEEBgorBgEEAdZ5AgQCBIH1BIHyAPAAdgB2/4g/Crb7lVHCYcz1
+h7o0tKTNuyncaEIKn+ZnTFo6dAAAAZIEyoTHAAAEAwBHMEUCIQDfWQ3wkU4kSMT3
+PQLoyJYBdVLCRyxi8tobnsfoD0E/WgIgf2eN8JBKnmfs7CJQT0HvAgAS9MFZuRWB
+7xyok4e/JRMAdgBIsONr2qZHNA/lagL6nTDrHFIBy1bdLIHZu7+rOdiEcwAAAZIE
+yoS1AAAEAwBHMEUCIEYnDwNJHjyNza8eY4yAQ/dzVpCE64cehLdzzWunEcGRAiEA
+7vKTK4YC9D8zqvyxH3g+JQbpsmy4ZA++bkQ2I3fkrW4wCgYIKoZIzj0EAwIDRwAw
+RAIgfXAMt44ZN8Iw/hqKHLTZedbrnzUkNHVhl1Kq+z/LekoCIBhqkpluvQCSCuY+
+BJCCTT76mMS7eDixnYsfPeUqNtqg
+-----END CERTIFICATE-----
+)EOF";
+
+#endif // CONFIG_H
